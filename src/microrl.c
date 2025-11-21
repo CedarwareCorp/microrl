@@ -334,8 +334,10 @@ static void terminal_print_line (microrl_t * pThis, int pos, int cursor)
 }
 
 //*****************************************************************************
+#include "cmsis_os.h"
 void microrl_init (microrl_t * pThis, void (*print) (const char *)) 
 {
+//	taskENTER_CRITICAL();
 	memset(pThis->cmdline, 0, _COMMAND_LINE_LEN);
 #ifdef _USE_HISTORY
 	memset(pThis->ring_hist.ring_buf, 0, _RING_HISTORY_LEN);
@@ -355,6 +357,7 @@ void microrl_init (microrl_t * pThis, void (*print) (const char *))
 #ifdef _ENABLE_INIT_PROMPT
 	print_prompt (pThis);
 #endif
+//	taskEXIT_CRITICAL();
 }
 
 //*****************************************************************************
