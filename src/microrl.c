@@ -15,7 +15,7 @@ BUGS and TODO:
 
 //#define DBG(...) fprintf(stderr, "\033[33m");fprintf(stderr,__VA_ARGS__);fprintf(stderr,"\033[0m");
 
-char * prompt_default = _PROMPT_DEFAULT;
+extern char * prompt_default;
 
 #ifdef _USE_HISTORY
 
